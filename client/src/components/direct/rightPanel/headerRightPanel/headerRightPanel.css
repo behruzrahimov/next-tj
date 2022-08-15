@@ -1,0 +1,33 @@
+.header_right_panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 7.5%;
+  border-bottom: 1px solid #111620;
+  background-color: #1f2936;
+}
+
+.username_select_conatct {
+  display: flex;
+  margin-left: 15px;
+  align-items: center;
+}
+.contact_img_header_message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: #111620;
+  border-radius: 50%;
+  color: #b2d5ea;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.username_select_conatct h3 {
+  font-size: 20px;
+  color: #b2d5ea;
+  text-transform: capitalize;
+}

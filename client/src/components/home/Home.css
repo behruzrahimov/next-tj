@@ -1,0 +1,146 @@
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: inherit;
+  width: 80%;
+  height: 100vh;
+  color: #74838f;
+  background-color: #111620;
+  overflow-y: scroll;
+}
+
+.home::-webkit-scrollbar {
+  width: 5px;
+}
+
+.home::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px #9ea2ff;
+}
+
+.home::-webkit-scrollbar-thumb {
+  background-color: #95a2ffa3;
+  border-radius: 10px;
+}
+
+.post_container {
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+.post_items {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.header_post_items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.img_post_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 15px;
+  background-color: #74838f;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.footer_post {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.senderusername_post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.img_post_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like_conatciner {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.like_conatciner p {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.like_conatciner p span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.none {
+  display: none;
+}
+
+.modal_likers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  opacity: 0;
+  position: absolute;
+  top: -1200px;
+  left: 20%;
+  z-index: 9999;
+}
+
+.modal_likers.active {
+  height: 100vh;
+  opacity: 1;
+  top: 0;
+  background-color: #0000002c;
+}
+
+.modal_likers_container {
+  display: flex;
+  width: 450px;
+  height: 450px;
+  border: 1px solid silver;
+}
+
+.img_loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

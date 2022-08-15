@@ -1,0 +1,14 @@
+.direct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+}
+
+.direct_all_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #111620;
+}

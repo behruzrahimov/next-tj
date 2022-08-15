@@ -1,0 +1,48 @@
+.message_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 7%;
+  background-color: #1f2936;
+}
+
+.message_input_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.message_input_container input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  width: 95%;
+  height: 95%;
+  outline: none;
+  border: none;
+  background-color: #1f2936;
+  color: white;
+  font-size: 16px;
+}
+
+.message_input_container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.message_input_container button:hover {
+  color: #828282;
+  transition: all 0.1s linear;
+}

@@ -1,0 +1,20 @@
+.right_panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+  color: white;
+}
+
+.choose_contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.choose_contacts p {
+  font-weight: 700;
+  font-size: 25px;
+}
