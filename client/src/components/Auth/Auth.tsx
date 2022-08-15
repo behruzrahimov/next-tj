@@ -205,13 +205,13 @@ export function Auth() {
           setErrAuth("");
           window.location.reload();
         } else {
-          setErrReg("Это имя уже зайнита");
+          setErrReg("This name is already taken");
         }
       } else {
         setErrReg("Password is invalid");
       }
     } else {
-      setErrReg("Зополните все полии");
+      setErrReg("Fill in all the fields");
     }
   };
 
@@ -229,7 +229,7 @@ export function Auth() {
           setLogined(true);
           window.location.reload();
         } else {
-          setErrAuth("Пароль или логин неверно");
+          setErrAuth("Password or login is incorrect");
         }
       });
   };
