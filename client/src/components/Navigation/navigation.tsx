@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./navigation.css";
 import { SiGooglemessages } from "react-icons/si";
+import { users } from "../types/types";
 export function Navigation() {
   useNavigate();
   const userLogLs = localStorage.getItem("userLog");
-  const userLog = userLogLs ? JSON.parse(userLogLs) : {};
+  const userLog: users = userLogLs ? JSON.parse(userLogLs) : {};
   return (
     <div className="navigation">
       <li>
@@ -48,7 +49,7 @@ export function Navigation() {
       </li>
       <li>
         <Link
-          to={`/user/${userLog.username}`}
+          to={`/user/${userLog.id}`}
           className={
             window.location.href.indexOf("user") > -1 ? "link active" : "link"
           }

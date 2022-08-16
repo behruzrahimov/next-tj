@@ -16,6 +16,7 @@ export default function App() {
   const logined: boolean = loginedLS ? JSON.parse(loginedLS) : false;
   const userLogLS = localStorage.getItem("userLog");
   const userLog: users = userLogLS ? JSON.parse(userLogLS) : {};
+
   const exitLog = () => {
     localStorage.removeItem("userLog");
     localStorage.removeItem("logined");
@@ -200,12 +201,14 @@ export default function App() {
 
         <Route path="/user">
           <Route
-            path=":username"
+            path=":id"
             element={logined ? <Profile /> : <Navigate to="/login" />}
           />
         </Route>
 
         <Route path="*" element={<PageNotFind />} />
+        <Route path="/user/" element={<PageNotFind />} />
+        <Route path="/direct/" element={<PageNotFind />} />
       </Routes>
     </div>
   );
