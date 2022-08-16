@@ -1,0 +1,24 @@
+.page_not_find {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(53, 63, 66);
+  color: white;
+  font-size: 40px;
+}
+
+.page_not_find h1 {
+  font-size: 10rem;
+}
+
+.page_not_find p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

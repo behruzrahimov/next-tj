@@ -10,6 +10,7 @@ import { follow, users } from "./components/types/types";
 import loadingImg from "./img/Loading_icon.gif";
 import { ImExit } from "react-icons/im";
 import { Profile } from "./components/profile/profile";
+import { PageNotFind } from "./404/404-page";
 export default function App() {
   const loginedLS = localStorage.getItem("logined");
   const logined: boolean = loginedLS ? JSON.parse(loginedLS) : false;
@@ -203,6 +204,8 @@ export default function App() {
             element={logined ? <Profile /> : <Navigate to="/login" />}
           />
         </Route>
+
+        <Route path="*" element={<PageNotFind />} />
       </Routes>
     </div>
   );
