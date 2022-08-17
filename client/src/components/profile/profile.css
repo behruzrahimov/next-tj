@@ -229,11 +229,18 @@
 
 .followers_item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 60px;
   background-color: #111620;
   border-bottom: 1px solid #394459;
+}
+
+.user_name_img_modal__follower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img_followers {
@@ -254,6 +261,28 @@
   text-transform: capitalize;
   font-size: 22px;
   font-weight: 700;
+}
+
+.button_follower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #3e3f44;
+  margin-right: 15px;
+  color: white;
+}
+
+.button_follower:hover {
+  background-color: white;
+  color: black;
+  transition: all 0.1s linear;
 }
 
 .following_modal {
@@ -323,6 +352,7 @@
 .following_item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   background-color: #111620;
@@ -346,5 +376,15 @@
 .following_item p {
   text-transform: capitalize;
   font-size: 22px;
+  font-weight: 700;
+}
+
+.Follwer_zero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  font-size: 18px;
   font-weight: 700;
 }

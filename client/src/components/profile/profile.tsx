@@ -74,6 +74,12 @@ export function Profile() {
     };
   }, []);
 
+  const filterFollow =
+    follow &&
+    follow.filter((follow: follow) => {
+      return follow.followingid === userLog.id;
+    });
+
   const [modalFollowers, setModalFollowers] = useState<boolean>(false);
   const [modalFollowing, setModalFollowing] = useState<boolean>(false);
   return (
@@ -137,21 +143,66 @@ export function Profile() {
               <div className="header_dollowers_modal_container">
                 <h3>Followers</h3>
               </div>
-              <div className="followers_item_container">
-                {follow &&
-                  follow.map(
-                    (follow: follow) =>
-                      follow.followerid === userLog.id &&
-                      follow.follow && (
-                        <div key={follow.id} className="followers_item">
-                          <div className="img_followers">
-                            {follow.followingusername[0]}
+              {cntFollowers !== 0 ? (
+                <div className="followers_item_container">
+                  {follow &&
+                    follow.map(
+                      (follow: follow) =>
+                        follow.followerid === userLog.id &&
+                        follow.follow && (
+                          <div key={follow.id} className="followers_item">
+                            <div className="user_name_img_modal__follower">
+                              <div className="img_followers">
+                                {follow.followingusername[0]}
+                              </div>
+                              <p>{follow.followingusername}</p>
+                            </div>
+                            {filterFollow &&
+                              filterFollow.map(
+                                (filterFollow: follow) =>
+                                  filterFollow.followerid ===
+                                    follow.followingid && (
+                                    <button
+                                      key={filterFollow.id}
+                                      onClick={() => {
+                                        fetch(
+                                          `http://localhost:8080/follow-save`,
+                                          {
+                                            method: "POST",
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                            },
+                                            body: JSON.stringify({
+                                              followerid:
+                                                filterFollow.followerid,
+                                              followerusername:
+                                                filterFollow.followerusername,
+                                              followingid: userLog.id,
+                                              followingusername:
+                                                userLog.username,
+                                              follow: true,
+                                            }),
+                                          }
+                                        );
+                                      }}
+                                      className="button_follower"
+                                    >
+                                      {filterFollow.follow
+                                        ? "Following"
+                                        : "Follow"}
+                                    </button>
+                                  )
+                              )}
                           </div>
-                          <p>{follow.followingusername}</p>
-                        </div>
-                      )
-                  )}
-              </div>
+                        )
+                    )}
+                </div>
+              ) : (
+                <div className="Follwer_zero">
+                  <p>No one followed to you!</p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -184,26 +235,56 @@ export function Profile() {
               <p className="icon-close"></p>
             </div>
 
-            <div className="following_modal_container">
-              <div className="header_following_modal_container">
-                <h3>Following</h3>
+            {
+              <div className="following_modal_container">
+                <div className="header_following_modal_container">
+                  <h3>Following</h3>
+                </div>
+                {cntFlowing !== 0 ? (
+                  <div className="following_item_container">
+                    {follow &&
+                      follow.map(
+                        (follow: follow) =>
+                          follow.followingid === userLog.id &&
+                          follow.follow && (
+                            <div key={follow.id} className="following_item">
+                              <div className="user_name_img_modal__follower">
+                                <div className="img_following">
+                                  {follow.followerusername[0]}
+                                </div>
+                                <p>{follow.followerusername}</p>
+                              </div>
+                              <button
+                                className="button_follower"
+                                onClick={() => {
+                                  fetch(`http://localhost:8080/follow-save`, {
+                                    method: "POST",
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                      followerid: follow.followerid,
+                                      followerusername: follow.followerusername,
+                                      followingid: userLog.id,
+                                      followingusername: userLog.username,
+                                      follow: true,
+                                    }),
+                                  });
+                                }}
+                              >
+                                Following
+                              </button>
+                            </div>
+                          )
+                      )}
+                  </div>
+                ) : (
+                  <div className="Follwer_zero">
+                    <p>When you follow people, you'll see them here</p>
+                  </div>
+                )}
               </div>
-              <div className="following_item_container">
-                {follow &&
-                  follow.map(
-                    (follow: follow) =>
-                      follow.followingid === userLog.id &&
-                      follow.follow && (
-                        <div key={follow.id} className="following_item">
-                          <div className="img_following">
-                            {follow.followerusername[0]}
-                          </div>
-                          <p>{follow.followerusername}</p>
-                        </div>
-                      )
-                  )}
-              </div>
-            </div>
+            }
           </div>
         </div>
       </div>
