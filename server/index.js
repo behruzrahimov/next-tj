@@ -10,9 +10,9 @@ import postgres from "pg";
 //uuid
 import { v4 as uuidv4 } from "uuid";
 
-//import __dirname
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -37,7 +37,7 @@ const app = express();
 //cors()
 app.use(cors());
 
-//router
+//
 app.use("/", router);
 
 //expres JSON
@@ -58,7 +58,6 @@ const storage = multer.diskStorage({
   },
 });
 
-//milter
 const upload = multer({ storage: storage });
 
 //post user
