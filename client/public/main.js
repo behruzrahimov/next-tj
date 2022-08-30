@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow } = require("electron")
 require("@electron/remote/main").initialize();
 
 const createWindow = () => {
