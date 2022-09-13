@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./navigation.css";
 import { SiGooglemessages } from "react-icons/si";
 import { users } from "../types/types";
+import { CgFeed } from "react-icons/cg";
+import { MdOutlinePostAdd } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
 export function Navigation() {
   useNavigate();
   const userLogLs = localStorage.getItem("userLog");
@@ -18,7 +21,7 @@ export function Navigation() {
           }
         >
           <p className="icon-th-large">
-            <span>Feed</span>
+            <CgFeed /> <span>Feed</span>
           </p>
         </Link>
       </li>
@@ -43,6 +46,7 @@ export function Navigation() {
           }
         >
           <p className="icon-control_point">
+            <MdOutlinePostAdd />
             <span>Post</span>
           </p>
         </Link>
@@ -55,6 +59,7 @@ export function Navigation() {
           }
         >
           <p className="icon-user">
+            <FaUserAlt />
             <span>{userLog.username}</span>
           </p>
         </Link>

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { follow, likes, posts, users } from "../types/types";
 import "./Home.css";
 import loadingImg from "../../img/Loading_icon.gif";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 export function Home() {
   const userLogLs = localStorage.getItem("userLog");
   const userLog: users = userLogLs ? JSON.parse(userLogLs) : {};
@@ -169,11 +171,19 @@ export function Home() {
                                           ? "icon-heart"
                                           : "icon-heart-o"
                                       }
-                                    ></p>
+                                    >
+                                      {like.postlike ? (
+                                        <AiFillHeart />
+                                      ) : (
+                                        <AiOutlineHeart />
+                                      )}
+                                    </p>
                                   )
                               )
                             ) : (
-                              <p className="icon-heart-o"></p>
+                              <p className="icon-heart-o">
+                                <AiOutlineHeart />
+                              </p>
                             )}
                             <div>
                               {cntLikes &&
@@ -206,7 +216,9 @@ export function Home() {
               className="close_modal_user__select_container"
               onClick={() => setModalUser(false)}
             >
-              <span className="icon-close"></span>
+              <span className="icon-close">
+                <AiOutlineCloseCircle />
+              </span>
             </p>
             <div className="modal_user__header_img_name">
               <div className="header_img_border">

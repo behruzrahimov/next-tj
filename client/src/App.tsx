@@ -11,6 +11,8 @@ import loadingImg from "./img/Loading_icon.gif";
 import { ImExit } from "react-icons/im";
 import { Profile } from "./components/profile/profile";
 import { PageNotFind } from "./404/404-page";
+import { BsSearch } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 export default function App() {
   const loginedLS = localStorage.getItem("logined");
   const logined: boolean = loginedLS ? JSON.parse(loginedLS) : false;
@@ -66,7 +68,9 @@ export default function App() {
         <div className="header_app">
           <div className="logo">NEXT</div>
           <div className="search">
-            <span className="icon-search"></span>
+            <span className="icon-search">
+              <BsSearch />
+            </span>
             <input
               className="input_search"
               type="text"
@@ -83,7 +87,9 @@ export default function App() {
                   setSearchUser("");
                 }}
               >
-                <p className="icon-close"></p>
+                <p className="icon-close">
+                  <AiOutlineCloseCircle />
+                </p>
               </div>
               <div className="modal_user_container">
                 <div className="header_container_modal_user">

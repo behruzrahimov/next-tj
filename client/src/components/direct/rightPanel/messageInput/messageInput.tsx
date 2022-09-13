@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { selectContactType, users } from "../../../types/types";
 import "./messageInput.css";
+import { IoMdSend } from "react-icons/io";
+import { MdKeyboardVoice } from "react-icons/md";
 export function MessageInput({ selectContact }: selectContactType) {
   const [textMessage, setTextMessage] = useState<string>("");
   const onTextMessageChange = (e: any) => {
@@ -45,7 +47,9 @@ export function MessageInput({ selectContact }: selectContactType) {
         <button className="send_button_message" onClick={sendMessage}>
           <span
             className={textMessage.trim() ? "icon-send" : "icon-keyboard_voice"}
-          ></span>
+          >
+            {textMessage.trim() ? <IoMdSend /> : <MdKeyboardVoice />}
+          </span>
         </button>
       </div>
     </div>

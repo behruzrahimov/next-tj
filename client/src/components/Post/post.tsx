@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
+import { BsCloudUploadFill } from "react-icons/bs";
 import { users } from "../types/types";
 import "./post.css";
 export function Post() {
@@ -113,7 +115,7 @@ export function Post() {
                   !selectedImage ? { display: "none" } : { display: "block" }
                 }
               >
-                <span className="icon-delete"></span>
+                <span className="icon-delete"><AiFillDelete/></span>
               </button>
             </div>
           }
@@ -122,7 +124,7 @@ export function Post() {
 
           <div className="posting_footer">
             <button className="button_select_file" onClick={handleClick}>
-              <span className="icon-upload"></span>
+              <span className="icon-upload"><BsCloudUploadFill/></span>
             </button>
 
             <input

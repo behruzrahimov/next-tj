@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { CgFeed } from "react-icons/cg";
 import { follow, likes, posts, users } from "../types/types";
 import "./profile.css";
@@ -136,7 +138,9 @@ export function Profile() {
                 setModalFollowers(false);
               }}
             >
-              <p className="icon-close"></p>
+              <p className="icon-close">
+                <AiOutlineCloseCircle />
+              </p>
             </div>
 
             <div className="followers_modal_container">
@@ -232,7 +236,9 @@ export function Profile() {
                 setModalFollowing(false);
               }}
             >
-              <p className="icon-close"></p>
+              <p className="icon-close">
+                <AiOutlineCloseCircle />
+              </p>
             </div>
 
             {
@@ -360,11 +366,19 @@ export function Profile() {
                                       ? "icon-heart"
                                       : "icon-heart-o"
                                   }
-                                ></p>
+                                >
+                                  {like.postlike ? (
+                                    <AiFillHeart />
+                                  ) : (
+                                    <AiOutlineHeart />
+                                  )}
+                                </p>
                               )
                           )
                         ) : (
-                          <p className="icon-heart-o"></p>
+                          <p className="icon-heart-o">
+                            <AiOutlineHeart />
+                          </p>
                         )}
                         <div>
                           {cntLikes &&
