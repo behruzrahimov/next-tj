@@ -1,0 +1,50 @@
+create table users(
+    id serial primary key ,
+    name text,
+    firstName text,
+    number text,
+    date text,
+    username text,
+    password text,
+    rePassword text
+);
+
+create table messages(
+    id serial primary key ,
+    sender int,
+    receiver int,
+    text text
+);
+
+create table posts (
+    id serial primary key ,
+    senderId int,
+    senderUserName text,
+    title text,
+    urlImg text
+);
+
+
+create table likes (
+    id serial primary key ,
+    liker int,
+    likerUsername text,
+    postId int,
+    postLike boolean
+);
+
+create table  cntLike (
+    id serial primary key ,
+    postId int,
+    liker int ,
+    cnt int
+);
+
+create table follow(
+    id serial primary key ,
+    followerId int,
+    followerUserName text,
+    followingId int,
+    followingUserName text,
+    follow boolean
+)
