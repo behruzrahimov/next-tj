@@ -10,7 +10,7 @@ import { follow, users } from "./components/types/types";
 import loadingImg from "./img/Loading_icon.gif";
 import { ImExit } from "react-icons/im";
 import { Profile } from "./components/profile/profile";
-import { PageNotFind } from "./404/404-page";
+import { PageNotFind } from "./components/404/404-page";
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 export default function App() {
