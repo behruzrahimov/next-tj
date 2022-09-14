@@ -1,7 +1,7 @@
 {
-  "name": "telegram",
+  "name": "nexttj-server",
   "version": "1.0.0",
-  "description": "Ilmhona",
+  "description": "nexttj",
   "main": "index.js",
   "type": "module",
   "scripts": {
