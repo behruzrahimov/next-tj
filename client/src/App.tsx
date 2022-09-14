@@ -55,7 +55,7 @@ export default function App() {
         setFollow(response);
       }
       getFollow();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };

@@ -10,12 +10,17 @@ export function Home() {
 
   const [posts, setPosts] = useState<any>([]);
   useEffect(() => {
-    const getPost = async () => {
-      const url = await fetch("http://localhost:8080/posts-list");
-      const response = await url.json();
-      setPosts(response);
+    const rotationInterval = setInterval(() => {
+      async function getPosts() {
+        const url = await fetch("http://localhost:8080/posts-list");
+        const response = await url.json();
+        setPosts(response);
+      }
+      getPosts();
+    }, 500);
+    return () => {
+      clearInterval(rotationInterval);
     };
-    getPost();
   }, []);
 
   const [user, setUser] = useState<any>();
@@ -37,7 +42,7 @@ export function Home() {
         setLikes(response);
       }
       getlikes();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };
@@ -52,7 +57,7 @@ export function Home() {
         setCntLikes(response);
       }
       getCntLikes();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };

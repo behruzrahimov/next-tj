@@ -11,16 +11,6 @@ export function Profile() {
   let cntFollowers: number = 0;
   let cntFlowing: number = 0;
 
-  // const [users, setUsers] = useState<any>();
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     const url = await fetch("http://localhost:8080/user-list");
-  //     const res = await url.json();
-  //     setUsers(res);
-  //   };
-  //   getUsers();
-  // }, []);
-
   const [posts, setPosts] = useState<any>();
   useEffect(() => {
     const getUsers = async () => {
@@ -40,7 +30,7 @@ export function Profile() {
         setFollow(response);
       }
       getFollow();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };
@@ -55,7 +45,7 @@ export function Profile() {
         setLikes(response);
       }
       getlikes();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };
@@ -70,7 +60,7 @@ export function Profile() {
         setCntLikes(response);
       }
       getCntLikes();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };

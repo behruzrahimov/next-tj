@@ -13,7 +13,7 @@ export function MessageList({ selectContact }: selectContactType) {
         setMessages(response);
       }
       getMessages();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(rotationInterval);
     };
