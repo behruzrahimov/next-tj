@@ -14,7 +14,7 @@ export function Profile() {
   const [posts, setPosts] = useState<any>();
   useEffect(() => {
     const getUsers = async () => {
-      const url = await fetch("http://localhost:8080/posts-list");
+      const url = await fetch("http://192.168.68.122:8080/posts-list");
       const res = await url.json();
       setPosts(res);
     };
@@ -25,7 +25,7 @@ export function Profile() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getFollow() {
-        const url = await fetch("http://localhost:8080/follow-list");
+        const url = await fetch("http://192.168.68.122:8080/follow-list");
         const response = await url.json();
         setFollow(response);
       }
@@ -40,7 +40,7 @@ export function Profile() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getlikes() {
-        const url = await fetch("http://localhost:8080/likes-list");
+        const url = await fetch("http://192.168.68.122:8080/likes-list");
         const response = await url.json();
         setLikes(response);
       }
@@ -55,7 +55,7 @@ export function Profile() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getCntLikes() {
-        const url = await fetch("http://localhost:8080/cntlike-list");
+        const url = await fetch("http://192.168.68.122:8080/cntlike-list");
         const response = await url.json();
         setCntLikes(response);
       }
@@ -160,7 +160,7 @@ export function Profile() {
                                       key={filterFollow.id}
                                       onClick={() => {
                                         fetch(
-                                          `http://localhost:8080/follow-save`,
+                                          `http://192.168.68.122:8080/follow-save`,
                                           {
                                             method: "POST",
                                             headers: {
@@ -253,19 +253,23 @@ export function Profile() {
                               <button
                                 className="button_follower"
                                 onClick={() => {
-                                  fetch(`http://localhost:8080/follow-save`, {
-                                    method: "POST",
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({
-                                      followerid: follow.followerid,
-                                      followerusername: follow.followerusername,
-                                      followingid: userLog.id,
-                                      followingusername: userLog.username,
-                                      follow: true,
-                                    }),
-                                  });
+                                  fetch(
+                                    `http://192.168.68.122:8080/follow-save`,
+                                    {
+                                      method: "POST",
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                      },
+                                      body: JSON.stringify({
+                                        followerid: follow.followerid,
+                                        followerusername:
+                                          follow.followerusername,
+                                        followingid: userLog.id,
+                                        followingusername: userLog.username,
+                                        follow: true,
+                                      }),
+                                    }
+                                  );
                                 }}
                               >
                                 Following
@@ -302,7 +306,7 @@ export function Profile() {
                       <div className="img">
                         <p>
                           <img
-                            src={`http://localhost:8080/img-list/${JSON.parse(
+                            src={`http://192.168.68.122:8080/img-list/${JSON.parse(
                               post.urlimg
                             )}`}
                             alt="img_user_profile"
@@ -322,7 +326,7 @@ export function Profile() {
                                   key={index}
                                   onClick={async () => {
                                     await fetch(
-                                      `http://localhost:8080/likes-save`,
+                                      `http://192.168.68.122:8080/likes-save`,
                                       {
                                         method: "POST",
                                         headers: {
@@ -338,7 +342,7 @@ export function Profile() {
                                     );
 
                                     await fetch(
-                                      `http://localhost:8080/cntlike-save`,
+                                      `http://192.168.68.122:8080/cntlike-save`,
                                       {
                                         method: "POST",
                                         headers: {

@@ -21,7 +21,7 @@ export function Post() {
   const [users, setUsers] = useState<any>([]);
   useEffect(() => {
     async function getUsers() {
-      const url = await fetch("http://localhost:8080/user-list");
+      const url = await fetch("http://192.168.68.122:8080/user-list");
       const response = await url.json();
       setUsers(response);
     }
@@ -32,7 +32,7 @@ export function Post() {
   const [post, setPost] = useState<any>([]);
   useEffect(() => {
     const getPosts = async () => {
-      const url = await fetch("http://localhost:8080/posts-list");
+      const url = await fetch("http://192.168.68.122:8080/posts-list");
       const response = await url.json();
       setPost(response);
     };
@@ -44,7 +44,7 @@ export function Post() {
 
   const sendImageFunc = async () => {
     if (selectedImage) {
-      await fetch(`http://localhost:8080/posts-save`, {
+      await fetch(`http://192.168.68.122:8080/posts-save`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,13 +55,13 @@ export function Post() {
         }),
       });
 
-      await fetch(`http://localhost:8080/img-save`, {
+      await fetch(`http://192.168.68.122:8080/img-save`, {
         method: "POST",
         body: formData,
       });
 
       await users.forEach(async (user: users) => {
-        await fetch(`http://localhost:8080/likes-save`, {
+        await fetch(`http://192.168.68.122:8080/likes-save`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export function Post() {
         });
       });
 
-      await fetch(`http://localhost:8080/cntlike-save`, {
+      await fetch(`http://192.168.68.122:8080/cntlike-save`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,9 @@ export function Post() {
                   !selectedImage ? { display: "none" } : { display: "block" }
                 }
               >
-                <span className="icon-delete"><AiFillDelete/></span>
+                <span className="icon-delete">
+                  <AiFillDelete />
+                </span>
               </button>
             </div>
           }
@@ -124,7 +126,9 @@ export function Post() {
 
           <div className="posting_footer">
             <button className="button_select_file" onClick={handleClick}>
-              <span className="icon-upload"><BsCloudUploadFill/></span>
+              <span className="icon-upload">
+                <BsCloudUploadFill />
+              </span>
             </button>
 
             <input

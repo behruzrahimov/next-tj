@@ -12,7 +12,7 @@ export function Home() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getPosts() {
-        const url = await fetch("http://localhost:8080/posts-list");
+        const url = await fetch("http://192.168.68.122:8080/posts-list");
         const response = await url.json();
         setPosts(response);
       }
@@ -26,7 +26,7 @@ export function Home() {
   const [user, setUser] = useState<any>();
   useEffect(() => {
     const getUsers = async () => {
-      const url = await fetch("http://localhost:8080/user-list");
+      const url = await fetch("http://192.168.68.122:8080/user-list");
       const res = await url.json();
       setUser(res);
     };
@@ -37,7 +37,7 @@ export function Home() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getlikes() {
-        const url = await fetch("http://localhost:8080/likes-list");
+        const url = await fetch("http://192.168.68.122:8080/likes-list");
         const response = await url.json();
         setLikes(response);
       }
@@ -52,7 +52,7 @@ export function Home() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getCntLikes() {
-        const url = await fetch("http://localhost:8080/cntlike-list");
+        const url = await fetch("http://192.168.68.122:8080/cntlike-list");
         const response = await url.json();
         setCntLikes(response);
       }
@@ -66,7 +66,7 @@ export function Home() {
   const [follow, setFollow] = useState<any>();
   useEffect(() => {
     const getFollow = async () => {
-      const url = await fetch("http://localhost:8080/follow-list");
+      const url = await fetch("http://192.168.68.122:8080/follow-list");
       const res = await url.json();
       setFollow(res);
     };
@@ -105,7 +105,7 @@ export function Home() {
                         <div className="img_post_main">
                           <div className="text_post_img">
                             <img
-                              src={`http://localhost:8080/img-list/${JSON.parse(
+                              src={`http://192.168.68.122:8080/img-list/${JSON.parse(
                                 post.urlimg
                               )}`}
                               alt="imgPost"
@@ -140,7 +140,7 @@ export function Home() {
                                       key={index}
                                       onClick={async () => {
                                         await fetch(
-                                          `http://localhost:8080/likes-save`,
+                                          `http://192.168.68.122:8080/likes-save`,
                                           {
                                             method: "POST",
                                             headers: {
@@ -157,7 +157,7 @@ export function Home() {
                                         );
 
                                         await fetch(
-                                          `http://localhost:8080/cntlike-save`,
+                                          `http://192.168.68.122:8080/cntlike-save`,
                                           {
                                             method: "POST",
                                             headers: {

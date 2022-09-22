@@ -13,7 +13,7 @@ export function LeftPanel({ callSelectConatct }: selectConatct) {
   const [users, setUsers] = useState<any>([]);
   useEffect(() => {
     async function getUsers() {
-      const url = await fetch("http://localhost:8080/user-list");
+      const url = await fetch("http://192.168.68.122:8080/user-list");
       const response = await url.json();
       setUsers(response);
     }

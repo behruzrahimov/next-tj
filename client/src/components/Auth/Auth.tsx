@@ -27,7 +27,7 @@ export function Auth() {
   const [posts, setPosts] = useState<any>();
   useEffect(() => {
     const getPost = async () => {
-      const url = await fetch("http://localhost:8080/posts-list");
+      const url = await fetch("http://192.168.68.122:8080/posts-list");
       const response = await url.json();
       setPosts(response);
     };
@@ -36,7 +36,7 @@ export function Auth() {
 
   useEffect(() => {
     async function getUsers() {
-      const url = await fetch("http://localhost:8080/user-list");
+      const url = await fetch("http://192.168.68.122:8080/user-list");
       const response = await url.json();
       setUsers(response);
     }
@@ -126,7 +126,7 @@ export function Auth() {
         });
 
         if (cnt === 0) {
-          await fetch(`http://localhost:8080/user-reg`, {
+          await fetch(`http://192.168.68.122:8080/user-reg`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export function Auth() {
 
           (await posts) &&
             posts.forEach(async (post: posts) => {
-              await fetch(`http://localhost:8080/likes-save`, {
+              await fetch(`http://192.168.68.122:8080/likes-save`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -160,7 +160,7 @@ export function Auth() {
 
           users &&
             users.forEach(async (user: users) => {
-              fetch(`http://localhost:8080/follow-save`, {
+              fetch(`http://192.168.68.122:8080/follow-save`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -174,7 +174,7 @@ export function Auth() {
                 }),
               });
 
-              fetch(`http://localhost:8080/follow-save`, {
+              fetch(`http://192.168.68.122:8080/follow-save`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

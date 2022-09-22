@@ -13,7 +13,7 @@ export function MessageInput({ selectContact }: selectContactType) {
 
   const sendMessage = () => {
     if (textMessage.trim()) {
-      fetch(`http://localhost:8080/messages-save`, {
+      fetch(`http://192.168.68.122:8080/messages-save`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -28,7 +28,7 @@ export default function App() {
   const [users, setUsers] = useState<any>();
   useEffect(() => {
     const getUsers = async () => {
-      const url = await fetch("http://localhost:8080/user-list");
+      const url = await fetch("http://192.168.68.122:8080/user-list");
       const res = await url.json();
       setUsers(res);
     };
@@ -50,7 +50,7 @@ export default function App() {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getFollow() {
-        const url = await fetch("http://localhost:8080/follow-list");
+        const url = await fetch("http://192.168.68.122:8080/follow-list");
         const response = await url.json();
         setFollow(response);
       }
@@ -114,7 +114,7 @@ export default function App() {
                             <div className="flow">
                               <button
                                 onClick={() => {
-                                  fetch(`http://localhost:8080/follow-save`, {
+                                  fetch(`http://192.168.68.122:8080/follow-save`, {
                                     method: "POST",
                                     headers: {
                                       "Content-Type": "application/json",

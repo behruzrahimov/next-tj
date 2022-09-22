@@ -8,7 +8,7 @@ export function MessageList({ selectContact }: selectContactType) {
   useEffect(() => {
     const rotationInterval = setInterval(() => {
       async function getMessages() {
-        const url = await fetch("http://localhost:8080/messages-list");
+        const url = await fetch("http://192.168.68.122:8080/messages-list");
         const response = await url.json();
         setMessages(response);
       }
